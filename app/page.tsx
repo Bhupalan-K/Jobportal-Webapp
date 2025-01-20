@@ -1,101 +1,117 @@
-import Image from "next/image";
+'use client'
 
-export default function Home() {
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+import CategoryCard from "@/components/Home/Cards/CategoryCard";
+import Hero from "@/components/Home/Cards/Hero";
+import HomeTitlesCard from "@/components/Home/Cards/HomeTitlesCard";
+import JobCard from "@/components/Jobs/JobCard";
+import Job from "@/utils/types";
+import './style.css'
+
+
+const Home = () => {
+
+  const API = 'https://678262eac51d092c3dcf4e8b.mockapi.io/jobs'
+
+  const [jobCategory, setJobCategory] = useState('Development')
+  const [isRecruiter, setIsRecruiter] = useState<boolean | null>(null)
+  const [jobs, setJobs] = useState<Job[]>([])
+  const [error, setError] = useState('')
+
+  const getJobs = async () => {
+    try {
+      const jobsData = await axios.get(API)
+      if (jobsData.data.length > 0) {
+        setJobs(jobsData.data)
+      }
+      setError('')
+    } catch (err) {
+      setError((err as Error).message)
+    }
+  }
+
+  const getCategory = (jobs: Job[]) => {
+    const category: { [key: string]: number } = {}
+    jobs.forEach((categoryCount) => {
+      category[categoryCount.category] = (category[categoryCount.category] || 0) + 1
+    })
+
+    const categoryArray = Object.entries(category).map(([name, count]) => ({
+      name, count
+    }))
+    return (
+      <>
+        {categoryArray.map((job, index) => (
+          <div key={index}
+            onClick={() => setJobCategory(job.name)}>
+            <CategoryCard
+              category={job.name}
+              positions={job.count} />
+          </div>
+        ))}
+      </>
+    )
+  }
+
+  useEffect(() => {
+    getJobs()
+  }, [])
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div style={{ width: '95%', margin: '8% auto' }}>
+      <Hero isRecruiter={isRecruiter} setIsRecruiter={setIsRecruiter} />
+      <div className='job-categories'>
+        <HomeTitlesCard
+          title='Job Category'
+          info={`2000 total Jobs - ${jobs.length} Jobs posted today`} />
+        <div className='job-types'>
+          {getCategory(jobs)}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+
+      <div className="sample-jobs-sec">
+        <HomeTitlesCard title='Featured Jobs' info='sduhvbdsghudsvhdscv' />
+        {error ? (<div className='loading'>
+          <h2>Failed to Load Jobs, Please try again Later</h2>
+        </div>) : (
+          <div className='featured-jobs'>
+            {jobs.length > 0 ? (
+              jobs.filter((job) => job.category === jobCategory).slice(0, 6).map((cardDetails) => (
+                <Link href={`/job/jobdetails?id=${cardDetails.id}`}
+                  key={cardDetails.id} className='jobs-card'>
+                  <div>
+                    <JobCard
+                      companyname={cardDetails.companyname}
+                      title={cardDetails.title}
+                      salary={cardDetails.salary}
+                      location={cardDetails.location}
+                      experience={cardDetails.experience}
+                      skills={cardDetails.skills}
+                      jobtype={cardDetails.jobtype}
+                      category={cardDetails.category}
+                      posteddate={cardDetails.posteddate} />
+                  </div>
+                </Link>
+              ))
+            ) : (
+              <div className='loading'>
+                <h2>Please Wait, Loading Jobs...</h2>
+              </div>
+            )}
+          </div>
+        )}
+
+        <Link href='/job'>
+          <div className='button'>
+            <button>View All Jobs</button>
+          </div>
+        </Link>
+      </div>
     </div>
   );
 }
+
+export default Home

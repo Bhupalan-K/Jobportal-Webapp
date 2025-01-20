@@ -1,0 +1,183 @@
+/* -------------Job card start------------- */
+
+.job-card {
+    width: 100%;
+    border: 1px solid #B2BEB5;
+    padding: 1%;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    gap: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+}
+
+.job-card .company-details {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1%;
+}
+
+.company-details .role-company {
+    width: 85%;
+}
+
+.company-details .company-image {
+    border-radius: 5px;
+    cursor: pointer;
+    width: 60px;
+    height: 7vh;
+    align-self: flex-start;
+    border: 1px solid #B2BEB5;
+}
+
+.job-card .job-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+}
+
+.company-details .job-title {
+    font-size: 120%;
+    font-weight: 700;
+}
+
+.job-details .detail-items {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5%;
+    margin-top: 10px;
+}
+
+.job-card .items {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 90%;
+}
+
+.job-card .details-icon {
+    font-size: 120%;
+    color: rgb(34, 70, 177);
+}
+
+.job-card .skills-date-type {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.skills-date-type .skills {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    align-items: center;
+    row-gap: 10px;
+    font-size: 90%;
+}
+
+.skills .skill {
+    padding: 3px 2%;
+    background: rgb(116, 203, 116);
+    border-radius: 30px;
+    margin-left: 10px;
+}
+
+.skills-date-type .date-type {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 1%;
+}
+
+.date-type .type {
+    display: flex;
+    gap: 15px;
+}
+
+.type .span {
+    padding: 3px 7px;
+    background: rgb(229, 177, 165);
+    border-radius: 15px;
+}
+
+@media(max-width:500px) {
+    .job-details .detail-items {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        height: 60px;
+    }
+}
+
+@media(max-width:400px) {
+    .job-card .company-image {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* -----------Job card end----------- */
+
+/* -----------JobApplyCard start------------- */
+
+.applycard {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0 auto;
+}
+
+.applycard h1 {
+    font-size: 120%;
+    font-weight: 700;
+}
+
+.applycard .applycard-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.applycard-inputs .input-items {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.input-items input {
+    padding: 2%;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #B2BEB5;
+}
+
+.applycard .buttons {
+    width: 100%;
+    padding: 1% 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.applycard button {
+    width: 80px;
+    padding: 3px;
+    text-align: right;
+    background: royalblue;
+    border-radius: 5px;
+    color: #ffff;
+    text-align: center;
+}
+
+/* -----------JobApplyCard end--------------- */

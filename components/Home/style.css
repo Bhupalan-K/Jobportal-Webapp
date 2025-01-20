@@ -1,0 +1,119 @@
+/* ------------Job Category start------------ */
+
+.job-categories {
+    padding: 1%;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.job-categories .job-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px 2%;
+}
+
+/* -------------Job Category ends------------ */
+
+/* ---------------sample jobs start--------------- */
+
+.sample-jobs-sec {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.sample-jobs-sec .featured-jobs {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1%;
+    row-gap: 50px;
+}
+
+.featured-jobs .jobs-card {
+    width: 49%;
+    border-radius: 5px;
+}
+
+@media(max-width:1000px) {
+
+    .sample-jobs-sec .featured-jobs {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .featured-jobs .jobs-card {
+        width: 100%;
+    }
+}
+
+/* ----------------sample jobs end ------------*/
+
+/* ------------footer start--------------- */
+
+.footer {
+    width: 100%;
+    padding: 3% 15% 2% 2%;
+    background: gray;
+    color: #ffff;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer .info-icons {
+    max-width: 300px;
+    padding: 1%;
+}
+
+.footer .footer-info {
+    width: 100%;
+}
+
+.footer h1 {
+    font-size: 120%;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.info-icons .footer-icons {
+    margin-top: 20px;
+    width: 100%;
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-icons .footer-icon {
+    font-size: 170%;
+    cursor: pointer;
+}
+
+.footer .quick-links {
+    max-width: 200px;
+    padding: 1%;
+}
+
+.quick-links p {
+    cursor: pointer;
+}
+
+.contact {
+    max-width: 300px;
+    padding: 1%;
+}
+
+.contact p {
+    cursor: pointer;
+}
+
+.footer .active-icon {
+    color: #25D366;
+}
+
+/* ------------footer end----------------- */

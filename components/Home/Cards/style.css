@@ -1,0 +1,128 @@
+/* ------------Hero start ----------- */
+
+.hero {
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+
+.hero .text-sec {
+    width: 50%;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-sec .headline {
+    font-size: 300%;
+    line-height: 50px;
+}
+
+.text-sec .user-type-status {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 130%;
+    font-weight: 700;
+}
+
+.text-sec .info {
+    font-size: large;
+    margin-top: 20px;
+}
+
+.hero .image-sec {
+    width: 48%;
+    padding: 1% auto;
+}
+
+.image-sec .image{
+    margin: 0 auto;
+}
+.text-sec .user-info {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px auto 0 auto;
+    padding: 1%;
+}
+
+.user-info p {
+    font-size: 130%;
+    font-weight: 600;
+}
+
+.user-info .buttons {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.buttons button {
+    width: 100px;
+    padding: 4px;
+    border-radius: 5px;
+    background: royalblue;
+    color: #ffff;
+}
+
+@media(max-width:490px) {
+    .text-sec .user-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+@media(max-width:1080px) {
+    .hero {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .hero .text-sec {
+        width: 100%;
+    }
+
+    .hero .image-sec {
+        width: 120%;
+    }
+}
+
+/* ------------Hero end -------------- */
+
+.category-header {
+    width: 100%;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.category-header .category-title {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.category-card {
+    width: 300px;
+    padding: 1% 4%;
+    border: 1px solid #dbdee3;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-card:hover {
+
+    transform: translateY(-10px);
+}
+
+.category-card .job-title {
+    font-size: 120%;
+    font-weight: 600;
+}

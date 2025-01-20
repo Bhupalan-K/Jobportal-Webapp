@@ -1,0 +1,74 @@
+/* ------------Job Category start------------ */
+.job-categories {
+    padding: 1%;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.job-categories .job-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px 2%;
+}
+
+/* -------------Job Category ends------------ */
+
+/* ---------------sample jobs start--------------- */
+
+.sample-jobs-sec {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sample-jobs-sec .featured-jobs {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1%;
+    row-gap: 50px;
+}
+
+.featured-jobs .jobs-card {
+    width: 49%;
+    border-radius: 5px;
+}
+
+.sample-jobs-sec .button {
+    width: 120px;
+    padding: 5px;
+    background: royalblue;
+    color: #fff;
+    border-radius: 5px;
+    margin: 20px auto;
+    cursor: pointer;
+    text-align: center;
+}
+
+@media(max-width:1000px) {
+
+    .sample-jobs-sec .featured-jobs {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .featured-jobs .jobs-card {
+        width: 100%;
+    }
+}
+
+/* ----------------sample jobs end ------------*/
+
+.loading {
+    width: 100%;
+    text-align: center;
+    font-size: 130%;
+    font-weight: 500;
+    margin: 50px 0;
+}

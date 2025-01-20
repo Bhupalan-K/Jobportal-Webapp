@@ -1,0 +1,253 @@
+/*-------------all jobs start----------------  */
+
+.all-jobs {
+    width: 100%;
+    padding: 1%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.all-jobs .jobs {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1%;
+    row-gap: 20px;
+}
+
+.jobs .all-jobs-card {
+    width: 49%;
+}
+
+@media(max-width:1000px) {
+    .all-jobs .jobs {
+        flex-direction: column;
+    }
+
+    .jobs .all-jobs-card {
+        width: 100%;
+    }
+}
+
+.all-jobs .job-detail {
+    position: sticky;
+    z-index: 200;
+    top: 10px;
+    width: 49%;
+}
+
+.prev-next-buttons {
+    width: 50%;
+    padding: 1%;
+    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.prev-next-buttons button {
+    padding: 3px 8px;
+    border-radius: 5px;
+    color: #ffff;
+}
+
+@media(max-width:800px) {
+
+    .all-jobs .jobs {
+        width: 100%;
+    }
+
+    .all-jobs .job-detail {
+        display: none;
+    }
+}
+
+/* -------------all jobs end----------------- */
+
+/* -------------jobdetail page start----------- */
+
+.jobdetail-page {
+    width: 95%;
+    padding: 1%;
+    margin: 10px auto;
+}
+
+.jobdetail-page-title h1 {
+    font-size: 140%;
+    font-weight: 700;
+}
+
+.jobdetail-page .jobdetail-header {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 1%;
+}
+
+.jobdetail-header .header-title {
+    padding: 1% 0;
+}
+
+.header-title h1 {
+    font-size: 120%;
+    font-weight: 550;
+}
+
+.jobdetail-page .icon-line {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 95%;
+}
+
+.icon-line .icon {
+    font-size: 150%;
+    color: rgb(34, 70, 177);
+}
+
+.jobdetail-page .header-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.header-details .jobdetail-date-type {
+    margin-top: 15px;
+    display: flex;
+    gap: 20px;
+}
+
+.jobdetail-date-type .jobdetail-type {
+    padding: 3px 15px;
+    background: rgb(229, 177, 165);
+    border-radius: 15px;
+}
+
+.jobdetail-header button {
+    width: 80px;
+    background: royalblue;
+    padding: 3px;
+    border-radius: 5px;
+    color: #ffff;
+    margin-bottom: 10px;
+}
+
+.jobdetail-page .jobdetail-page-details {
+    padding: 1%;
+    border: 1px solid #B2BEB5;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.jobdetail-page-details .jobdetail-page-skills {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    align-items: center;
+    row-gap: 10px;
+    font-size: 90%;
+    margin-top: 5px;
+}
+
+.jobdetail-page-skills span {
+    padding: 3px 2%;
+    background: rgb(116, 203, 116);
+    border-radius: 30px;
+    margin-left: 10px;
+}
+
+.jobdetail-page-details h1 {
+    font-size: 100%;
+    font-weight: 600;
+}
+
+.jobdetail-page-details .page-details {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 1%;
+}
+
+.jobdetail-page-details ul {
+    margin-left: 30px;
+    list-style-type: disc;
+}
+
+.jobdetail-page .related-jobs {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.related-jobs h1 {
+    font-size: 100%;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+
+.related-jobs .jobs {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    row-gap: 20px;
+
+}
+
+.related-jobs .jobs-card {
+    width: 49%;
+    border-radius: 5px;
+}
+
+@media(max-width:1000px) {
+    .related-jobs .jobs {
+        flex-direction: column;
+    }
+
+    .related-jobs .jobs-card {
+        width: 100%;
+    }
+}
+
+/* --------------jobdetail page end------------- */
+
+/* --------------apply-modal start--------------- */
+
+.apply-modal {
+    position: absolute;
+    top: 380px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #B2BEB5;
+    width: 50%;
+    max-width: 600px;
+    border-radius: 5px;
+    background: #ffff;
+    padding: 1%;
+}
+
+@media(max-width:850px) {
+    .apply-modal {
+        width: 70%;
+    }
+}
+
+@media(max-width:475px) {
+    .apply-modal {
+        width: 80%;
+    }
+}
+
+/* --------------apply-modal end----------------- */
+.loading {
+    width: 100%;
+    text-align: center;
+    font-size: 130%;
+    font-weight: 500;
+    margin: 50px 0;
+}
