@@ -15,7 +15,7 @@ const UserIcon = ({ session }: Props) => {
     <div className='user-items'>
       <Image
         className='user-icon'
-        src={`${session?.user?.image}` || '/images/cristiano.jpg'}
+        src={`${session?.user?.image}` || '/images/cardlogo.png'}
         alt='User Icon' width={40} height={40}
       />
       <button type='button'
