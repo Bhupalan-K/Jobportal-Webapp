@@ -86,7 +86,7 @@ const JobDetail = () => {
             </div>
 
             <button type='button'
-              onClick={() => setOpenModal(true)}
+              onClick={() =>setOpenModal(true)}
             >Apply</button>
           </div>
 
@@ -157,7 +157,11 @@ const JobDetail = () => {
             {relatedJobs.length > 0 ? (
               <div className='jobs'>
                 {relatedJobs.filter((job) =>
-                  job.id !== jobDetail.id).map((job) => (
+                  job.id !== jobDetail.id)
+                  .sort((earlyDate,olderDate) => 
+                    new Date(olderDate.posteddate).getTime()-
+                    new Date(earlyDate.posteddate).getTime())
+                  .map((job) => (
                     <Link href={`/job/jobdetails?id=${job.id}`}
                       key={job.id} className='jobs-card'>
                       <div key={job.id}>

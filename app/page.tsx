@@ -79,23 +79,25 @@ const Home = () => {
         </div>) : (
           <div className='featured-jobs'>
             {jobs.length > 0 ? (
-              jobs.filter((job) => job.category === jobCategory).slice(0, 6).map((cardDetails) => (
-                <Link href={`/job/jobdetails?id=${cardDetails.id}`}
-                  key={cardDetails.id} className='jobs-card'>
-                  <div>
-                    <JobCard
-                      companyname={cardDetails.companyname}
-                      title={cardDetails.title}
-                      salary={cardDetails.salary}
-                      location={cardDetails.location}
-                      experience={cardDetails.experience}
-                      skills={cardDetails.skills}
-                      jobtype={cardDetails.jobtype}
-                      category={cardDetails.category}
-                      posteddate={cardDetails.posteddate} />
-                  </div>
-                </Link>
-              ))
+              jobs.filter((job) => job.category === jobCategory).sort((earlyDate, olderDate) =>
+                new Date(olderDate.posteddate).getTime() - new Date(earlyDate.posteddate).getTime())
+                .slice(0, 6).map((cardDetails) => (
+                  <Link href={`/job/jobdetails?id=${cardDetails.id}`}
+                    key={cardDetails.id} className='jobs-card'>
+                    <div>
+                      <JobCard
+                        companyname={cardDetails.companyname}
+                        title={cardDetails.title}
+                        salary={cardDetails.salary}
+                        location={cardDetails.location}
+                        experience={cardDetails.experience}
+                        skills={cardDetails.skills}
+                        jobtype={cardDetails.jobtype}
+                        category={cardDetails.category}
+                        posteddate={cardDetails.posteddate} />
+                    </div>
+                  </Link>
+                ))
             ) : (
               <div className='loading'>
                 <h2>Please Wait, Loading Jobs...</h2>

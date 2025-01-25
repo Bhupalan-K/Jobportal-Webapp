@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction, useState } from "react"
 import ReactDOMServer from 'react-dom/server';
+import { toast } from "react-toastify";
 
 import './style.css'
 
@@ -33,11 +34,11 @@ const JobApplyCard = ({ jobTitle, companyName, setOpenModal }: Props) => {
     return ''
   }
 
-  const handleSendEmail = async () => {
+  const handleSendEmail = () => {
     const errorMessage = validation()
 
     if (errorMessage) {
-      alert(errorMessage)
+      toast.warning(errorMessage)
     }
     else {
       const emailMessage =
@@ -45,12 +46,12 @@ const JobApplyCard = ({ jobTitle, companyName, setOpenModal }: Props) => {
           <div>
             <p>{`Dear ${name},`}</p>
             <p>
-              You have successfully applied for the <strong>{jobTitle}</strong> role at <strong>{companyName}</strong> !
+              You have successfully applied for the
+              <strong>{jobTitle}</strong> role at <strong>{companyName}</strong> !
             </p>
           </div>
         )
-      try {
-        const response = await fetch('/api/emails/send', {
+        fetch('/api/emails/send', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -61,20 +62,19 @@ const JobApplyCard = ({ jobTitle, companyName, setOpenModal }: Props) => {
             message: emailMessage
           }),
         })
-        if (response.ok) {
-          alert('Email sent successfully!');
-          setName('')
-          setEmail('')
-          setFile(null)
-          setOpenModal(false)
-        } else {
-          const error = await response.json();
-          alert('Failed to send email:' + error.message);
-        }
-      }
-      catch (err) {
-        alert(err)
-      }
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Failed to send Email');
+          }
+          return response.json();
+        })
+        .then(() => {
+          toast.success('Email sent successfully')
+          setOpenModal(false);
+        })
+        .catch(err => {
+          toast.error(err.message);
+        });
     }
   }
 

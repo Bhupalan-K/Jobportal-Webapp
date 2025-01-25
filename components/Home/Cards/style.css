@@ -32,6 +32,17 @@
     margin-top: 20px;
 }
 
+.text-sec .postjob-button{
+    width: 150px;
+    margin: 15px auto 0 auto;
+    padding: 4px;
+    border-radius: 5px;
+    text-align: center;
+    background: royalblue;
+    color: #ffff;
+    cursor: pointer;
+}
+
 .hero .image-sec {
     width: 48%;
     padding: 1% auto;

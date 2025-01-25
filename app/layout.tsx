@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Suspense } from "react";
+import { ToastContainer } from "react-toastify";
 
 import ClientProvider from "@/components/Hoc/ClientProvider";
 import Navbar from "@/components/Home/Nav/Nav";
@@ -39,6 +40,7 @@ export default function RootLayout({
               <p>Loading Job Details, Please try again Later</p>
             </div>}>
             {children}
+            <ToastContainer autoClose={1500} />
           </Suspense>
           <Footer />
         </body>

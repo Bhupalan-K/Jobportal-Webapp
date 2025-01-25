@@ -1,0 +1,94 @@
+.postjob{
+    width: 95%;
+    border: 1px solid grey;
+    margin: 30px auto;
+    border-radius: 5px;
+}
+
+.postjob form{
+    padding: 0 2%;
+}
+
+.postjob h2{
+    padding: 1% 1% 1% 2%;
+    font-size: 120%;
+    font-weight: 600;
+    background: royalblue;
+    color: #ffff;
+}
+
+.postjob .postjob-items{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin: 30px auto;
+}
+
+.postjob-items label{
+    font-size: 110%;
+}
+
+.postjob-items input{
+    outline: none;
+    border: 1px solid grey;
+    padding: 10px;
+    border-radius: 5px;
+}
+ 
+.postjob-items .experience{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.experience select{
+    width: 49%;
+}
+
+.postjob-items .salary{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.salary input{
+    width: 49%;
+}
+
+
+.postjob-items select{
+    outline: none;
+    border: 1px solid grey;
+    padding: 13px 1%;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #ffff;
+}
+
+.postjob-items textarea{
+    height: 150px;
+    outline: none;
+    border: 1px solid grey;
+    padding: 13px 1%;
+    border-radius: 5px;
+}
+
+.postjob .postjob-buttons{
+    width: 100%;
+    padding: 1% 2%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.postjob-buttons button{
+    width: 80px;
+    background: royalblue;
+    padding: 3px;
+    border-radius: 5px;
+    color: #ffff;
+    margin-bottom: 10px;
+}

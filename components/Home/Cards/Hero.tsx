@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { Dispatch, SetStateAction } from 'react'
 
 interface Props {
@@ -38,9 +39,9 @@ const Hero = ({ isRecruiter, setIsRecruiter }: Props) => {
         {isRecruiter === false && <div className='user-type-status'>
           <h2>Start Apply for Job</h2>
         </div>}
-        {isRecruiter === true && <div className='user-type-status'>
-          <h2>SignUp to Upload Job</h2>
-        </div>}
+        {isRecruiter === true && 
+        <Link href='/job/postjob' className='postjob-button'>
+        <div><button>Post Job</button></div></Link>}
 
       </div>
       <div className='image-sec'>
