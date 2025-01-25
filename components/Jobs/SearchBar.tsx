@@ -14,7 +14,7 @@ const SearchBar = ({ searchedJobs, setSearchedJobs, handleSearchJobs, handleClea
         <div className='searchbar'>
             <input type='search' value={searchedJobs} 
             onChange={(e) => setSearchedJobs(e.target.value)} 
-            placeholder='Search Jobs' onClick={handleSearchJobs}
+            placeholder='Search Jobs'
             />
             <div className='searchbar-buttons'>
                 <button type='button' onClick={handleSearchJobs}>Search</button>

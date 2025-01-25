@@ -55,7 +55,7 @@ const AllJobs = () => {
 
     const handleExperienceRange = (experience: string, filterExperience: string) => {
         const [min, max] = experience.split('-')
-        const maxFormatted = max.replace(/\s+/g, '')
+        const maxFormatted = max ? max.replace(/\s+/g, ''):''
         if (`${min}year`.includes(filterExperience) ||
             `${min}years`.includes(filterExperience) ||
             maxFormatted.includes(filterExperience)) {
