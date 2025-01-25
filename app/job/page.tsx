@@ -55,11 +55,10 @@ const AllJobs = () => {
 
     const handleExperienceRange = (experience: string, filterExperience: string) => {
         const [min, max] = experience.split('-')
-        const maxFormatted = max ? max.replace(/\s+/g, ''):''
+        const maxFormatted = max ? max.replace(/\s+/g, '') : ''
         if (`${min}year`.includes(filterExperience) ||
             `${min}years`.includes(filterExperience) ||
             maxFormatted.includes(filterExperience)) {
-            console.log(max)
             return true
         }
         return false
@@ -118,7 +117,10 @@ const AllJobs = () => {
 
     const indexOfLastTask = currentPage * jobsPerPage
     const indexOfFirstTask = indexOfLastTask - jobsPerPage
-    const currentJobs = filteredJobs.slice(indexOfFirstTask, indexOfLastTask)
+    const currentJobs = filteredJobs.sort((earlyDate, olderDate) =>
+        new Date(olderDate.posteddate).getTime() -
+        new Date(earlyDate.posteddate).getTime())
+        .slice(indexOfFirstTask, indexOfLastTask)
 
     useEffect(() => {
         getJobs()
@@ -141,26 +143,24 @@ const AllJobs = () => {
                 <div className='all-jobs'>
                     {currentJobs.length > 0 ? (
                         <div className='jobs'>
-                            {currentJobs.sort((earlyDate, olderDate) =>
-                                new Date(olderDate.posteddate).getTime() -
-                                new Date(earlyDate.posteddate).getTime()).map((job) => (
-                                    <Link href={`/job/jobdetails?id=${job.id}`} key={job.id}
-                                        className='all-jobs-card'>
-                                        <div>
-                                            <JobCard
-                                                companyname={job.companyname}
-                                                title={job.title}
-                                                salary={job.salary}
-                                                location={job.location}
-                                                experience={job.experience}
-                                                skills={job.skills}
-                                                jobtype={job.jobtype}
-                                                category={job.category}
-                                                posteddate={job.posteddate}
-                                            />
-                                        </div>
-                                    </Link>
-                                ))}
+                            {currentJobs.map((job) => (
+                                <Link href={`/job/jobdetails?id=${job.id}`} key={job.id}
+                                    className='all-jobs-card'>
+                                    <div>
+                                        <JobCard
+                                            companyname={job.companyname}
+                                            title={job.title}
+                                            salary={job.salary}
+                                            location={job.location}
+                                            experience={job.experience}
+                                            skills={job.skills}
+                                            jobtype={job.jobtype}
+                                            category={job.category}
+                                            posteddate={job.posteddate}
+                                        />
+                                    </div>
+                                </Link>
+                            ))}
                         </div>) : (<p className='loading'>Please Wait, Loading Jobs...</p>)}
                 </div>
             )}
