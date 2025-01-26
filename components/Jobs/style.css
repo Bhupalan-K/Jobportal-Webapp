@@ -170,8 +170,8 @@
     justify-content: space-between;
 }
 
-.applycard button {
-    width: 80px;
+.applycard .buttons button {
+    width: 25%;
     padding: 3px;
     text-align: right;
     background: royalblue;

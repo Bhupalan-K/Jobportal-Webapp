@@ -73,7 +73,7 @@ const Home = () => {
       </div>
 
       <div className="sample-jobs-sec">
-        <HomeTitlesCard title='Featured Jobs' info='sduhvbdsghudsvhdscv' />
+        <HomeTitlesCard title='Featured Jobs' info='Recently posted Jobs' />
         {error ? (<div className='loading'>
           <h2>Failed to Load Jobs, Please try again Later</h2>
         </div>) : (
