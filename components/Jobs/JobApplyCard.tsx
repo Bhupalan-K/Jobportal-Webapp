@@ -40,7 +40,7 @@ const JobApplyCard = ({ jobTitle, companyName, setOpenModal }: Props) => {
     if (errorMessage) {
       toast.warning(errorMessage)
     }
-    else {
+    else {  
       const emailMessage =
         ReactDOMServer.renderToStaticMarkup(
           <div>
@@ -51,7 +51,7 @@ const JobApplyCard = ({ jobTitle, companyName, setOpenModal }: Props) => {
             </p>
           </div>
         )
-        fetch('/api/emails/send', {
+        fetch('/api/emails', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
