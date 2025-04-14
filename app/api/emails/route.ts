@@ -26,7 +26,7 @@ export async function POST(req: Request) {
       html: message,
     });
 
-    return NextResponse.json({ message: 'Email sent successfully!' });
+    return NextResponse.json({ message: 'Job applied successfully!' });
   } catch (error) {
     console.error('Error sending email:', error);
     return NextResponse.json({ message: 'Failed to send email', error });
